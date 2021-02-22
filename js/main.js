@@ -10,7 +10,7 @@ console.log(100+200);
 
 {
    function setWord(){
-    word = words[Math.floor(Math.random() * words.length)];
+    word = words.splice(Math.floor(Math.random() * words.length), 1)[0];
     target.textContent = word;
     loc = 0;
    }
@@ -20,15 +20,29 @@ console.log(100+200);
        'red',
        'blue',
        'pink',
+       'yellow'
    ];
 
     let word;
     let loc = 0;
-
-
+    let startTime;
+    let isPlaying = false;
     const target = document.getElementById('target');
 
-    setWord();
+
+ 
+
+    document.addEventListener('click', () => {
+　　　　　if (isPlaying === true){
+           return;
+       }
+
+
+        isPlaying = true;
+        startTime = Date.now();
+        setWord();
+      });
+
 
 
 
@@ -44,9 +58,16 @@ console.log(100+200);
         // 3: ___
         target.textContent = '_'.repeat(loc) + word.substring(loc);
 
-        if(loc === word.length){
+        if (loc === word.length) {
+            if (words.length === 0) {
+              const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
+              const result = document.getElementById('result');
+              result.textContent = ` ${elapsedTime} 秒で終了しました！`;
+              return;
+            }
+      
             setWord();
-        }
+          }
     });
 }
 
