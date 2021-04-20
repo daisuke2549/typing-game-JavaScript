@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>typing-game-JavaScript</title>
-    <link rel="stylesheet" href="./css/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-    <h1>目の前に書かれている色に関する単語をキーボードで打ってみましょう！</h1>
-    
-<p id ="target">Click to start!</p>
-<p id ="result"></p>
-
-<script src ="./js/main.js"></script>    
+  <div id="main">
+    <div><h2>タイピングゲーム<h2></div>
+    <div id="content"> 
+      <p id="yomi">よみ</p>
+      
+      <div id="mondai">
+        <p id="char-1" class="text default">a</p>
+        <p id="char-2" class="text default">b</p>
+        <p id="char-3" class="text default">c</p>
+      </div>
+      <div id = "finish-panel" class = "hidden">
+        <p>終了しました</p>
+        <button id = "start-button">やりなおす</button>
+    </div>
+  </div>
+  </div>
 </body>
 </html>

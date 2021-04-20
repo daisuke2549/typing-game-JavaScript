@@ -1,74 +1,63 @@
-'use strict';
-
-for (let i = 0; i < 5; i++){
-    console.log("現在の数字は" + i +  "です");
-}
-console.log(100+200);
-
-
-
-
-{
-   function setWord(){
-    word = words.splice(Math.floor(Math.random() * words.length), 1)[0];
-    target.textContent = word;
-    loc = 0;
+$(function() {
+ // jQueryオブジェクトを変数に代入
+ const $yomi = $('#yomi');
+ const $mondai = $('#mondai');
+ const $finishPanel = $('#finish-panel');
+ 
+ // 問題用の変数の初期化
+ let char_index = 1;
+ let max_length = 3; // TODO 最初の問題
+ let question_number = 0;
+ let question_limit = 3;
+ 
+ // 問題
+ const MONDAI_LIST = [
+   {yomi:'ごはん', text:'gohan'},
+   {yomi:'おすし', text:'osushi'},
+   {yomi:'サイフ', text:'saifu'},
+   {yomi:'バナナ', text:'banana'},
+   {yomi:'くつした', text:'kutsushita'},
+ ];
+ 
+ $(document).on('keypress', function(e){
+   // console.log('key:'+e.key);
+   const $target = $('#char-'+char_index);
+   const char = $target.text();
+   if (e.key === char) { //入力文字と現在の位置の文字が一緒だったら
+     // alert('正解!');
+     $target.removeClass('default');
+     $target.addClass('correct');
+     char_index++;
+   }
+   
+   if (max_length < char_index) {
+     question_number++;
+     if (question_limit < question_number) {
+        finish();
+        return;
+     }
+     changeQuestionWord();
+     char_index = 1; //初期化
    }
 
-
-　　const words = [
-       'red',
-       'blue',
-       'pink',
-       'yellow'
-   ];
-
-    let word;
-    let loc = 0;
-    let startTime;
-    let isPlaying = false;
-    const target = document.getElementById('target');
-
-
+ });
  
-
-    document.addEventListener('click', () => {
-　　　　　if (isPlaying === true){
-           return;
-       }
-
-
-        isPlaying = true;
-        startTime = Date.now();
-        setWord();
-      });
-
-
-
-
-    document.addEventListener('keydown', e =>{
-        if (e.key !== word[loc]){
-            return;
-        }
-
-            loc++;
-
-        // 1: _ed
-        // 2: __d
-        // 3: ___
-        target.textContent = '_'.repeat(loc) + word.substring(loc);
-
-        if (loc === word.length) {
-            if (words.length === 0) {
-              const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
-              const result = document.getElementById('result');
-              result.textContent = ` ${elapsedTime} 秒で終了しました！`;
-              return;
-            }
-      
-            setWord();
-          }
-    });
-}
-
-
+ function finish() {
+   $finishPanel.removeClass('hidden');
+   $yomi.hide();
+   $mondai.hide();
+ }
+ 
+ function changeQuestionWord() {
+   const word = MONDAI_LIST[question_number]['text']; 
+   max_length = word.length;
+   let newHtml = '';
+   for (var i = 0; i < max_length; i++) {
+      newHtml += '<p id="char-'+(i+1)+'" class="text default">'+word[i]+'</p>';
+   }
+   // console.log('newHtml: '+newHtml);
+   $mondai.html(newHtml);
+   $yomi.text(MONDAI_LIST[question_number]['yomi']);
+ }
+ 
+});
