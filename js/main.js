@@ -10,6 +10,7 @@ $(function() {
  let max_length = 3; // TODO 最初の問題
  let question_number = 1;
  let question_limit = 3;
+ let done_questions = {};
  
  
  // 問題
@@ -25,6 +26,14 @@ $(function() {
   {yomi:'けいたい', text:'keitai'},
   {yomi:'ふとん', text:'futon'},
 ];
+
+changeQuestionWord(getQuestionNumber());
+
+$countSelect.on('change', function(e){
+  question_limit = Number($countSelect.val());
+  changeQuestionWord(getQuestionNumber());
+});
+
  
 changeQuestionWord(0);
 
@@ -53,8 +62,16 @@ $countSelect.on('change', function(e){
      changeQuestionWord();
      char_index = 1; //初期化
    }
-
  });
+
+ function getQuestionNumber(){
+   let random_number = Math.floor(Math.random() * 10);
+   while(done_questions[random_number] !== undefined){
+     random_number = Math.floor(Math.random() * 10);
+   }
+   done_questions[random_number] = random_number;
+   return random_number;
+ }
  
  function finish() {
    $finishPanel.removeClass('hidden');
@@ -62,7 +79,7 @@ $countSelect.on('change', function(e){
    $mondai.hide();
  }
  
- function changeQuestionWord() {
+ function changeQuestionWord(index) {
    const word = MONDAI_LIST[question_number]['text']; 
    max_length = word.length;
    let newHtml = '';
