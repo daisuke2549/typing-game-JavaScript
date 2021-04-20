@@ -47,6 +47,11 @@ body {
   border-style: none;
   cursor: pointer;
 }
+#start-button:hover{
+   opacity:0.6;
+}
+
+
 
 #finish-panel {
   text-align: center;
@@ -55,4 +60,7 @@ body {
 
 .hidden {
   display: none;
+}
+#tool{
+  padding-top: 16px;
 }
