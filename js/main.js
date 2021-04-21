@@ -149,9 +149,11 @@ $('.magic-button').click(function(){
     // $("#start-message").effect("shake");
     $("#start-message").hide("color-blue");
     $("#start-message").show("color-blue");
-    alert('クリックありがとうございます😎');
+    // alert('クリックありがとうございます😎');
     $("#pulldown").css("color","blue");
 })
 $('#start-button').click(function(){
   alert('再チャレンジ頑張って！！！！！');
 })
+
+$('#title').fadeIn('slow');
