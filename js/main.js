@@ -149,4 +149,5 @@ $('.magic-button').click(function(){
     // $("#start-message").effect("shake");
     $("#start-message").hide("color-blue");
     $("#start-message").show("color-blue");
+    alert('クリックありがとうございます😎');
 })

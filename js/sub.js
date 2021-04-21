@@ -16,3 +16,18 @@ number = 145.46274682346828322;
 console.log(Math.floor(score));
 
 console.log(Math.floor(number));
+
+
+var score = 60;
+console.log(score);
+var score = 90;
+console.log(score);
+
+let name = "suzuki";
+console.log(name);
+
+name = "tanaka";
+console.log(name);
+//let は再代入が可能。
+
+
