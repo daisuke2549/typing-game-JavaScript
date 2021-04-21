@@ -30,4 +30,6 @@ name = "tanaka";
 console.log(name);
 //let は再代入が可能。
 
-
+const number2 = 10;
+console.log(number2);
+console.log(Math.floor(8.95));

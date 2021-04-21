@@ -150,4 +150,5 @@ $('.magic-button').click(function(){
     $("#start-message").hide("color-blue");
     $("#start-message").show("color-blue");
     alert('クリックありがとうございます😎');
+    $("#pulldown").css("color","blue");
 })
