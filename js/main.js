@@ -152,3 +152,6 @@ $('.magic-button').click(function(){
     alert('クリックありがとうございます😎');
     $("#pulldown").css("color","blue");
 })
+$('#start-button').click(function(){
+  alert('再チャレンジ頑張って！！！！！');
+})
