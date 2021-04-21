@@ -6,6 +6,8 @@ $(function() {
  const $countSelect = $('#count-select');
  const $correctMessage = $('#correct-message'); 
  const $mistakeMessage = $('#mistake-message'); 
+ const $timeMessage = $('#time-message');
+ const $startMessage = $('#start-message');
  
  // 問題用の変数の初期化
  let char_index = 1;
@@ -16,6 +18,33 @@ $(function() {
  let typing_cnt = 0;
  let correct_cnt = 0;
  let mistake_cnt = 0;
+
+
+
+$('#start-button').on('click', function(e){
+    init();
+});
+
+function init(){
+  char_index = 1;
+  question_number = 1;
+  question_limit = 3;
+  done_questions = {};
+  typing_cnt = 0;
+  correct_cnt = 0;
+  mistake_cnt = 0;
+  start_game = false;
+  start_time = 0;
+  $countSelect.val('3');
+  changeQuestionWord(getQuestionNumber());
+  $finishPanel.addClass('hidden');
+  $yomi.show();
+  $mondai.show();
+  $startMessage.show();
+  $countSelect.show();
+}
+
+
 
 
  
@@ -90,7 +119,10 @@ $countSelect.on('change', function(e){
    $mondai.hide();
    $correctMessage.text('正解数:'+ correct_cnt+'/'+typing_cnt+'('+Math.floor(correct_cnt/typing_cnt* 100)+'%)');
    $mistakeMessage.text('間違い数:'+ mistake_cnt+'/'+typing_cnt+'('+ Math.floor(mistake_cnt/typing_cnt* 100)+'%)');
- }
+   const end_time = performance.now();
+    const typing_time = ( (end_time - start_time) / 1000).toFixed(2);
+    $timeMessage.text('かかった時間：'+typing_time+'秒');
+  }
  
  function changeQuestionWord(index) {
    const word = MONDAI_LIST[question_number]['text']; 
