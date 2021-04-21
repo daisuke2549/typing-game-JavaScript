@@ -83,3 +83,15 @@ body {
   margin-top: 20px;
   margin-bottom: 10px;
 }
+
+.magic-button{
+  margin-top: 40px;
+}
+.magic-button button{
+  background-color: blue;
+  color:#fff;
+}
+
+.color-blue{
+  color:blue;
+}
