@@ -4,6 +4,8 @@ $(function() {
  const $mondai = $('#mondai');
  const $finishPanel = $('#finish-panel');
  const $countSelect = $('#count-select');
+ const $correctMessage = $('#correct-message'); 
+ const $mistakeMessage = $('#mistake-message'); 
  
  // 問題用の変数の初期化
  let char_index = 1;
@@ -11,7 +13,11 @@ $(function() {
  let question_number = 1;
  let question_limit = 3;
  let done_questions = {};
- 
+ let typing_cnt = 0;
+ let correct_cnt = 0;
+ let mistake_cnt = 0;
+
+
  
  // 問題
  const MONDAI_LIST = [
@@ -43,6 +49,8 @@ $countSelect.on('change', function(e){
 });
 
  $(document).on('keypress', function(e){
+   typing_cnt++;
+
    // console.log('key:'+e.key);
    const $target = $('#char-'+char_index);
    const char = $target.text();
@@ -51,11 +59,14 @@ $countSelect.on('change', function(e){
      $target.removeClass('default');
      $target.addClass('correct');
      char_index++;
+     correct_cnt++;
+   }else{
+     mistake_cnt++;
    }
    
    if (max_length < char_index) {
      question_number++;
-     if (question_limit < question_number) {
+     if (question_limit < question_number) {  //問題数のリミットを越えたら処理を終了する。
         finish();
         return;
      }
@@ -77,6 +88,8 @@ $countSelect.on('change', function(e){
    $finishPanel.removeClass('hidden');
    $yomi.hide();
    $mondai.hide();
+   $correctMessage.text('正解数:'+ correct_cnt+'/'+typing_cnt+'('+Math.floor(correct_cnt/typing_cnt* 100)+'%)');
+   $mistakeMessage.text('間違い数:'+ mistake_cnt+'/'+typing_cnt+'('+ Math.floor(mistake_cnt/typing_cnt* 100)+'%)');
  }
  
  function changeQuestionWord(index) {

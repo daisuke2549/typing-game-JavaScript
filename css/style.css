@@ -1,6 +1,6 @@
 body {
   font-family: system-ui;
-  background: #f06d06;
+  background: greenyellow;
   color: white;
   text-align: center;
 }
@@ -8,10 +8,16 @@ body {
 #main{
   text-align:center;
 }
+#main h2:hover{
+  color:red;
+  transform:scale(1.3);
+}
+
 #content{
   border:2px solid black;
   border-radius:20px;
-  width:500px;
+  width:100%;
+  max-width: 500px;
   margin:0 auto;
 }
 #yomi{
