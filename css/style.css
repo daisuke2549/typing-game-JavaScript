@@ -1,6 +1,6 @@
 body {
   font-family: system-ui;
-  background: greenyellow;
+  background: green;
   color: white;
   text-align: center;
 }
@@ -58,7 +58,6 @@ body {
 }
 
 
-
 #finish-panel {
   text-align: center;
   margin-bottom: 30px;
@@ -69,6 +68,8 @@ body {
 }
 #tool{
   padding-top: 16px;
+  width:100px;
+  height: 70px;
 }
 
 #guide{
