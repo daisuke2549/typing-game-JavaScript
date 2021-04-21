@@ -38,8 +38,8 @@ function init(){
   $countSelect.val('3');
   changeQuestionWord(getQuestionNumber());
   $finishPanel.addClass('hidden');
-  $yomi.show();
-  $mondai.show();
+  $yomi.hide();
+  $mondai.hide();
   $startMessage.show();
   $countSelect.show();
 }
