@@ -8,6 +8,7 @@ $(function() {
   const $mistakeMessage = $('#mistake-message');
   const $timeMessage = $('#time-message');
   const $startMessage = $('#start-message');
+  const $resetButton  = $('#reset-button');
   
   // 問題用の変数の初期化
   let char_index = 1;
@@ -48,6 +49,9 @@ $(function() {
   $('#start-button').on('click', function(e) {
      init();
   });
+  $('#start-button2').on('click', function(e) {
+    init();
+ });
   
   $(document).on('keypress', function(e){
     if (!start_game && e.keyCode === 32) {
@@ -126,6 +130,7 @@ $(function() {
     const end_time = performance.now();
     const typing_time = ( (end_time - start_time) / 1000).toFixed(2);
     $timeMessage.text('かかった時間：'+typing_time+'秒');
+    $resetButton.addClass('hidden2');
   }
   
   function changeQuestionWord(index) {

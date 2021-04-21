@@ -66,6 +66,9 @@ body {
 .hidden {
   display: none;
 }
+.hidden2 {
+  display: none;
+}
 #tool{
   padding-top: 16px;
   width:100px;
@@ -74,4 +77,9 @@ body {
 
 #guide{
   color:#000;
+}
+
+#reset-button{
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
