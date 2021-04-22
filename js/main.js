@@ -34,6 +34,9 @@ $(function() {
     {yomi:'パソコン', text:'pasokon'},
     {yomi:'けいたい', text:'keitai'},
     {yomi:'ふとん', text:'futon'},
+    {yomi:'アップル', text:'apple'},
+    {yomi:'グレープ', text:'grape'},
+    {yomi:'レモン', text:'lemon'},
   ];
   
   $yomi.hide();
@@ -114,7 +117,7 @@ $(function() {
     
     changeQuestionWord(getQuestionNumber());
     
-    $finishPanel.addClass('hidden');
+    $finishPanel.addClass('hidden'); //classを追加
     $yomi.hide();
     $mondai.hide();
     $startMessage.show();
@@ -122,8 +125,8 @@ $(function() {
   }
   
   function finish() {
-    $finishPanel.removeClass('hidden');
-    $yomi.hide();
+    $finishPanel.removeClass('hidden'); //classを削除
+    $yomi.hide(); 
     $mondai.hide();
     $correctMessage.text('正解数：'+correct_cnt+'/'+typing_cnt+'  ('+ Math.floor(correct_cnt/typing_cnt * 100)+'%)');
     $mistakeMessage.text('間違い数：'+mistake_cnt+'/'+typing_cnt+'  ('+ Math.floor(mistake_cnt/typing_cnt * 100)+'%)');
@@ -152,8 +155,13 @@ $('.magic-button').click(function(){
     // alert('クリックありがとうございます😎');
     $("#pulldown").css("color","blue");
 })
+<<<<<<< HEAD
 $('#start-button').click(function(){
   alert('再チャレンジ頑張って！！！！！');
 })
 
 $('#title').fadeIn('slow');
+=======
+
+$("h2").addClass("italic");
+>>>>>>> function-role
