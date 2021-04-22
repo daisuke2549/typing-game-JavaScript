@@ -9,6 +9,7 @@ $(function() {
   const $timeMessage = $('#time-message');
   const $startMessage = $('#start-message');
   const $resetButton  = $('#reset-button');
+  const $pullDown = $('#pulldown');
   
   // 問題用の変数の初期化
   let char_index = 1;
@@ -37,6 +38,8 @@ $(function() {
     {yomi:'アップル', text:'apple'},
     {yomi:'グレープ', text:'grape'},
     {yomi:'レモン', text:'lemon'},
+    {yomi:'マック', text:'mac'},
+    {yomi:'とうふ', text:'tofu'},
   ];
   
   $yomi.hide();
@@ -58,6 +61,7 @@ $(function() {
   
   $(document).on('keypress', function(e){
     if (!start_game && e.keyCode === 32) {
+      $pullDown.hide()
       $startMessage.hide();
       $countSelect.hide();
       $yomi.show();
@@ -95,9 +99,9 @@ $(function() {
   });
   
   function getQuestionNumber() {
-    let random_number = Math.floor(Math.random() * 10);
+    let random_number = Math.floor(Math.random() * 15);
     while (done_questions[random_number] !== undefined) {
-      random_number = Math.floor(Math.random() * 10);
+      random_number = Math.floor(Math.random() * 15);
     }
     done_questions[random_number] = random_number;
     return random_number;

@@ -106,3 +106,14 @@ iframe{
 .btn-magic-hide{
   display: none;
 }
+
+.reload-button {
+  position: relative;
+  right:10px;
+  bottom:10px;
+  position: fixed;
+}
+
+.reload-button input{
+font-weight: bold;
+}
