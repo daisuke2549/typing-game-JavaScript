@@ -150,10 +150,11 @@ $(function() {
 $('.magic-button').click(function(){
   // $("#start-message").addClass("color-blue");
     // $("#start-message").effect("shake");
-    $("#start-message").hide("color-blue");
-    $("#start-message").show("color-blue");
+    $("#start-message").toggle("color-blue");
+    // $("#start-message").show("color-blue");
     // alert('クリックありがとうございます😎');
     $("#pulldown").css("color","blue");
+    $("#btn-magic-hide").removeClass("btn-magic-hide");
 })
 
 $('#start-button').click(function(){

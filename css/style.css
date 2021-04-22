@@ -95,12 +95,14 @@ body {
 .color-blue{
   color:blue;
 }
-<<<<<<< HEAD
 
 iframe{
   margin-top: 100px;
-=======
+}
 .italic{
   font-style: italic;
->>>>>>> function-role
+}
+
+.btn-magic-hide{
+  display: none;
 }
