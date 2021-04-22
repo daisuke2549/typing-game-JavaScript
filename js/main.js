@@ -44,7 +44,7 @@ $(function() {
   changeQuestionWord(getQuestionNumber());
   
   $countSelect.on('change', function(e) {
-    question_limit = Number($countSelect.val());
+    question_limit = Number($countSelect.val());   //選んだ出題数の問題数を取得
     done_questions = {};
     changeQuestionWord(getQuestionNumber());
   });
@@ -155,13 +155,12 @@ $('.magic-button').click(function(){
     // alert('クリックありがとうございます😎');
     $("#pulldown").css("color","blue");
 })
-<<<<<<< HEAD
+
 $('#start-button').click(function(){
   alert('再チャレンジ頑張って！！！！！');
 })
 
 $('#title').fadeIn('slow');
-=======
 
 $("h2").addClass("italic");
->>>>>>> function-role
+
