@@ -33,3 +33,11 @@ console.log(name);
 const number2 = 10;
 console.log(number2);
 console.log(Math.floor(8.95));
+
+
+let txt = "テキスト";
+txt += "text";
+console.log(txt);
+
+let btn = $("#btn-magic").val();
+console.log(btn);

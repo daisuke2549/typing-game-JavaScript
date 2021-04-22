@@ -95,3 +95,6 @@ body {
 .color-blue{
   color:blue;
 }
+.italic{
+  font-style: italic;
+}
